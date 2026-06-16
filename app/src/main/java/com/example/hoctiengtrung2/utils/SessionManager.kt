@@ -10,7 +10,6 @@ object SessionManager {
     private const val KEY_IS_LOGGED_IN = "is_logged_in"
     private const val KEY_DARK_MODE = "dark_mode"
 
-    // State để UI quan sát và cập nhật ngay lập tức
     var isDarkModeState = mutableStateOf(false)
 
     private fun getSharedPreferences(context: Context): SharedPreferences {

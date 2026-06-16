@@ -68,7 +68,10 @@ class TraCuuRepository {
 
         val translatedText = myMemoryResponse?.responseData?.translatedText ?: return@coroutineScope null
 
-        val hanVietList = thivienResponse?.result?.mapNotNull { it.getFirstReading() }
+        val hanVietList = thivienResponse?.result?.mapNotNull { result ->
+            val all = result.getAllReadings()
+            if (all.isNotEmpty()) all.joinToString("/") else null
+        }
         val hanViet = if (!hanVietList.isNullOrEmpty()) {
             hanVietList.joinToString(" ").trim()
         } else {

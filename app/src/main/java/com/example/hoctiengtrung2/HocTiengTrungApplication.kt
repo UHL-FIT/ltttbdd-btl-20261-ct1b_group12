@@ -12,13 +12,12 @@ class HocTiengTrungApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         
-        // Cấu hình Firestore Offline Cache Settings
         try {
             val db = FirebaseFirestore.getInstance()
             val settings = FirebaseFirestoreSettings.Builder()
                 .setLocalCacheSettings(
                     PersistentCacheSettings.newBuilder()
-                        .setSizeBytes(100 * 1024 * 1024) // 100 MB cache
+                        .setSizeBytes(100 * 1024 * 1024)
                         .build()
                 )
                 .build()
